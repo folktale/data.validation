@@ -6,14 +6,57 @@ monads.validation
 [![Dependencies Status](https://david-dm.org/folktale/monads.validation.png)](https://david-dm.org/folktale/monads.validation)
 [![experimental](http://hughsk.github.io/stability-badges/dist/experimental.svg)](http://github.com/hughsk/stability-badges)
 
-
-A disjunction (Either monad) that's more appropriate for validating inputs with better vocabulary & straight-forward failure aggregation.
+The `Validation(a, b)` is a disjunction that's more appropriate for validating
+inputs, or any use case where you want to aggregate failures. Not only the
+`Validation` monad provides a better terminology for working with such cases
+(`Failure` and `Success` versus `Left` and `Right`), it also allows one to
+easily aggregate failures and successes as an Applicative Functor.
 
 
 ## Example
 
 ```js
-( ... )
+var Validation = require('monads.validation')
+var Success = Validation.Success
+var Failure = Validation.Failure
+
+function isPasswordLongEnough(a) {
+  return a.length > 6?    Success(a)
+  :      /* otherwise */  Failure("Password must have more than 6 characters")
+}
+
+function isPasswordStrongEnough(a) {
+  return /[\W]/.test(a)?  Success(a)
+  :      /* otherwise */  Failure("Password must contain special characters")
+}
+
+function isPasswordValid(a) {
+  return [isPasswordLongEnough(a), isPasswordStrongEnough(a)]
+           .map(function(x){ return x.bimap(liftNel, k) })
+           .reduce(function(a, b) { return a.ap(b) })
+}
+
+function liftNel(a) {
+  return [a]
+}
+
+function k(a){ return function(b) {
+  return a
+}}
+
+isPasswordValid("foo")
+// => Validation.Failure([
+//      "Password must have more than 6 characters.",
+//      "Password must contain special characters."
+//    ])
+
+isPasswordValid("rosesarered")
+// => Validation.Failure([
+//      "Password must contain special characters."
+//    ])
+
+isPasswordValid("rosesarered$andstuff")
+// => Validation.Success("rosesarered$andstuff")
 ```
 
 
