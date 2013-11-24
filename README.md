@@ -141,7 +141,7 @@ Released under the [MIT licence](https://github.com/folktale/monads.validation/b
 <!-- links -->
 [Fantasy Land]: https://github.com/fantasyland/fantasy-land
 [Browserify]: http://browserify.org/
-[release]: https://github.com/folktale/monads.validation/releases/download/v0.0.0/monads.validation-0.0.0.tar.gz
+[release]: https://github.com/folktale/monads.validation/releases/download/v0.1.0/monads.validation-0.1.0.tar.gz
 [Git]: http://git-scm.com/
 [Make]: http://www.gnu.org/software/make/
 [Node.js]: http://nodejs.org/
