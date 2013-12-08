@@ -1,4 +1,4 @@
-# # monads.validation
+# # Monad: Validation
 #
 # The `Validation(a, b)` is a disjunction that's more appropriate for
 # validating inputs, or any use case where you want to aggregate
@@ -38,7 +38,7 @@
 class Validation
   ->
 
-  # ### Section: Constructors ##########################################
+  # ### Constructors ###################################################
 
   # #### Function: Failure
   #
@@ -66,7 +66,7 @@ class Validation
     | _  => new Failure(a)
 
 
-  # ### Section: Predicates ############################################
+  # ### Predicates #####################################################
 
   # #### Field: is-failure
   #
@@ -83,7 +83,7 @@ class Validation
   is-success: false
 
 
-  # ### Section: Applicative ###########################################
+  # ### Applicative ####################################################
 
   # #### Function: of
   #
@@ -107,7 +107,7 @@ class Validation
   ap: (_) -> ...
 
 
-  # ### Section: Functor ###############################################
+  # ### Functor ########################################################
 
   # #### Function: map
   #
@@ -118,7 +118,7 @@ class Validation
   map: (_) -> ...
 
 
-  # ### Section: Chain #################################################
+  # ### Chain ##########################################################
 
   # #### Function: chain
   #
@@ -129,7 +129,7 @@ class Validation
   chain: (_) -> ...
 
 
-  # ### Section: Show ##################################################
+  # ### Show ###########################################################
 
   # #### Function: to-string
   #
@@ -139,7 +139,7 @@ class Validation
   to-string: -> ...
 
 
-  # ### Section: Eq ####################################################
+  # ### Eq #############################################################
 
   # #### Function: is-equal
   #
@@ -150,7 +150,7 @@ class Validation
   is-equal: (_) -> ...
 
 
-  # ### Section: Extracting and Recovering #############################
+  # ### Extracting and Recovering ######################################
 
   # #### Function: get
   #
@@ -188,7 +188,7 @@ class Validation
   merge: -> @value
 
 
-  # ### Section: Folds and Extended Transformations ####################
+  # ### Folds and Extended Transformations #############################
 
   # #### Function: fold
   #
