@@ -13,7 +13,7 @@ dist:
 	mkdir -p dist
 
 dist/monads.validation.umd.js: compile dist
-	$(browserify) lib/index.js --standalone Validation > $@
+	$(browserify) lib/index.js --standalone folktale.monads.Validation > $@
 
 dist/monads.validation.umd.min.js: dist/monads.validation.umd.js
 	$(uglify) --mangle - < $^ > $@

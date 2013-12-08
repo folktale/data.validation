@@ -1,5 +1,5 @@
-monads.validation
-=================
+Monads: Validation
+==================
 
 [![Build Status](https://secure.travis-ci.org/folktale/monads.validation.png?branch=master)](https://travis-ci.org/folktale/monads.validation)
 [![NPM version](https://badge.fury.io/js/monads.validation.png)](http://badge.fury.io/js/monads.validation)
@@ -93,7 +93,7 @@ require(['monads.validation'], function(Validation) {
 ### Using without modules
 
 [Download the latest release][release], and load the `monads.validation.umd.js`
-file. The properties are exposed in the global `Validation` object:
+file. The properties are exposed in the global `folktale.monads.Validation` object:
 
 ```html
 <script src="/path/to/monads.validation.umd.js"></script>
@@ -118,8 +118,8 @@ any JavaScript environment.
 
 You can [read the documentation online][docs] or build it yourself:
 
-    $ git clone git://github.com/folktale/monads.maybe.git
-    $ cd monads.maybe
+    $ git clone git://github.com/folktale/monads.validation.git
+    $ cd monads.validation
     $ npm install
     $ make documentation
 
