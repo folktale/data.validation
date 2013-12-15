@@ -16,7 +16,7 @@ easily aggregate failures and successes as an Applicative Functor.
 ## Example
 
 ```js
-var Validation = require(applicatives.validation')
+var Validation = require('applicatives.validation')
 var Success = Validation.Success
 var Failure = Validation.Failure
 
