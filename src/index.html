@@ -1,11 +1,11 @@
-<!DOCTYPE html><html lang="en"><head><title>src/index</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="src/index"><meta name="groc-project-path" content="src/index.ls"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Arvo|PT+Sans"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/index.ls</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h1 id="monad-validation">Monad: Validation</h1>
+<!DOCTYPE html><html lang="en"><head><title>src/index</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="src/index"><meta name="groc-project-path" content="src/index.ls"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Arvo|PT+Sans"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path">src/index.ls</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h1 id="applicative-validation">Applicative: Validation</h1>
 
 <p>The <code>Validation(a, b)</code> is a disjunction that's more appropriate for
 validating inputs, or any use case where you want to aggregate
-failures. Not only the <code>Validation</code> monad provides a better
-terminology for working with such cases (<code>Failure</code> and <code>Success</code>
-versus <code>Left</code> and <code>Right</code>), it also allows one to easily aggregate
-failures and successes as an Applicative Functor.</p></div></div></div><div class="segment"><div class="code folded"><div class="wrapper marker"><span class="c1">/** </span></div><div class="wrapper"><span class="cm">/** </span>
+failures. Not only the <code>Validation</code> provides a better terminology for
+working with such cases (<code>Failure</code> and <code>Success</code> versus <code>Left</code> and
+<code>Right</code>), it also allows one to easily aggregate failures and
+successes as an Applicative Functor.</p></div></div></div><div class="segment"><div class="code folded"><div class="wrapper marker"><span class="c1">/** </span></div><div class="wrapper"><span class="cm">/** </span>
 <span class="cm"> * Copyright (c) 2013 Quildreen Motta</span>
 <span class="cm"> *</span>
 <span class="cm"> * Permission is hereby granted, free of charge, to any person</span>
@@ -28,17 +28,17 @@ failures and successes as an Applicative Functor.</p></div></div></div><div clas
 <span class="cm"> * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</span>
 <span class="cm"> */</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h2 id="class-validationa-b">Class: Validation(a, b)</h2>
 
-<p>The <code>Validation(a, b)</code> monad.
-+ type: Validation(a, b) &lt;: Applicative, Functor, Chain, Show, Eq</p></div></div><div class="code"><div class="wrapper"><span class="k">class</span> <span class="nx">Validation</span>
+<p>The <code>Validation(a, b)</code> applicative functor.
++ type: Validation(a, b) &lt;: Applicative, Functor, Show, Eq</p></div></div><div class="code"><div class="wrapper"><span class="k">class</span> <span class="nx">Validation</span>
   <span class="nf">-&gt;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="constructors">Constructors</h3></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h4 id="function-failure">Function: Failure</h4>
 
-<p>Constructs a new <code>Validation(a, b)</code> monad holding a <code>Failure</code> value.</p>
+<p>Constructs a new <code>Validation(a, b)</code> applicative holding a <code>Failure</code> value.</p>
 
 <ul>
 <li>type: a -> Validation(a, b)</li>
 </ul></div></div><div class="code"><div class="wrapper">  <span class="nv">Failure: </span><span class="nf">(a) -&gt;</span> <span class="k">new</span> <span class="nx">Failure</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h4 id="function-success">Function: Success</h4>
 
-<p>Constructs a new <code>Validation(a, b)</code> monad holding a <code>Success</code> value.</p>
+<p>Constructs a new <code>Validation(a, b)</code> applicative holding a <code>Success</code> value.</p>
 
 <ul>
 <li>type: b -> Validation(a, b)</li>
@@ -61,61 +61,50 @@ failures and successes as an Applicative Functor.</p></div></div></div><div clas
 value <code>b</code>.</p>
 
 <p><code>b</code> can be any value, including <code>null</code>, <code>undefined</code> or another
-<code>Validation(a, b)</code> monad.</p>
+<code>Validation(a, b)</code> applicative.</p>
 
 <ul>
 <li>type: b -> Validation(a, b)</li>
-</ul></div></div><div class="code"><div class="wrapper">  <span class="k">of</span><span class="o">:</span> <span class="nf">(b) -&gt;</span> <span class="k">new</span> <span class="nx">Success</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h4 id="function-ap">Function: ap</h4>
+</ul></div></div><div class="code"><div class="wrapper">  <span class="k">of</span><span class="o">:</span> <span class="nf">(b) -&gt;</span> <span class="k">new</span> <span class="nx">Success</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments doc-section"><div class="wrapper"><h4 id="function-ap">Function: ap</h4>
 
 <p>If both applicatives represent a <code>Success</code> value, maps the value in
 the given validation with the function in this validation. Otherwise
 aggregates the errors with a semigroup — both Failures must hold a
-semigroup.</p>
+semigroup.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">ap: </span><span class="nf">(_) -&gt;</span> <span class="p">...</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="functor">Functor</h3></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h4 id="function-map">Function: map</h4>
 
-<ul>
-<li>type: (@Validation(a, b -> c)) => Validation(a, b) -> Validation(a, c)</li>
-</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">ap: </span><span class="nf">(_) -&gt;</span> <span class="p">...</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="functor">Functor</h3></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h4 id="function-map">Function: map</h4>
-
-<p>Transforms the <code>Success</code> value of the <code>Validation(a, b)</code> monad using
+<p>Transforms the <code>Success</code> value of the <code>Validation(a, b)</code> applicative using
 a regular unary function.</p>
 
 <ul>
 <li>type: (@Validation(a, b)) => (b -> c) -> Validation(a, c)</li>
-</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">map: </span><span class="nf">(_) -&gt;</span> <span class="p">...</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="chain">Chain</h3></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h4 id="function-chain">Function: chain</h4>
+</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">map: </span><span class="nf">(_) -&gt;</span> <span class="p">...</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="show">Show</h3></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h4 id="function-to-string">Function: to-string</h4>
 
-<p>Transforms the <code>Success</code> value of the <code>Validation(a, b)</code> monad using
-an unary function to a monad of the same type.</p>
-
-<ul>
-<li>type: (@Validation(a, b)) => (b -> Validation(a, c)) -> Validation(a, c)</li>
-</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">chain: </span><span class="nf">(_) -&gt;</span> <span class="p">...</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="show">Show</h3></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h4 id="function-to-string">Function: to-string</h4>
-
-<p>Returns a textual representation of the <code>Validation(a, c)</code> monad.</p>
+<p>Returns a textual representation of the <code>Validation(a, c)</code> applicative.</p>
 
 <ul>
 <li>type: (@Validation(a, b)) => Unit -> String</li>
 </ul></div></div><div class="code"><div class="wrapper">  <span class="k">to</span><span class="o">-</span><span class="nv">string: </span><span class="nf">-&gt;</span> <span class="p">...</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="eq">Eq</h3></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h4 id="function-is-equal">Function: is-equal</h4>
 
-<p>Tests if an <code>Validation(a, b)</code> monad is equal to another
-<code>Validation(a, b)</code> monad.
+<p>Tests if an <code>Validation(a, b)</code> applicative is equal to another
+<code>Validation(a, b)</code> applicative.
 + type: (@Validation(a, b)) => Validation(a, b) -> Boolean</p></div></div><div class="code"><div class="wrapper">  <span class="o">is-</span><span class="nv">equal: </span><span class="nf">(_) -&gt;</span> <span class="p">...</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="extracting-and-recovering">Extracting and Recovering</h3></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h4 id="function-get">Function: get</h4>
 
-<p>Extracts the <code>Success</code> value out of the <code>Validation(a, b)</code> monad, if
+<p>Extracts the <code>Success</code> value out of the <code>Validation(a, b)</code> applicative, if
 it exists. Otherwise throws a <code>TypeError</code>.</p>
 
 <ul>
 <li>see: get-or-else — A getter that can handle failures.</li>
 <li>see: merge — Returns the convergence of both values.</li>
 <li>type: (@Validation(a, b), *throws) => Unit -> b</li>
-<li>throws: TypeError — if the monad doesn't have a <code>Success</code> value.</li>
+<li>throws: TypeError — if the applicative doesn't have a <code>Success</code> value.</li>
 </ul></div></div><div class="code"><div class="wrapper">  <span class="nv">get: </span><span class="nf">-&gt;</span> <span class="p">...</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h4 id="function-get-or-else">Function: get-or-else</h4>
 
-<p>Extracts the <code>Success</code> value out of the <code>Validation(a, b)</code> monad. If
-the monad doesn't have a <code>Success</code> value, returns the given default.
+<p>Extracts the <code>Success</code> value out of the <code>Validation(a, b)</code> applicative. If
+the applicative doesn't have a <code>Success</code> value, returns the given default.
 + type: (@Validation(a, b)) => b -> b</p></div></div><div class="code"><div class="wrapper">  <span class="nv">get-or-else: </span><span class="nf">(_) -&gt;</span> <span class="p">...</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h4 id="function-or-else">Function: or-else</h4>
 
 <p>Transforms a <code>Failure</code> value into a new <code>Validation(a, b)</code>
-monad. Does nothing if the monad contains a <code>Success</code> value.
+applicative. Does nothing if the applicative contains a <code>Success</code> value.
 + type: (@Validation(a, b)) => (a -> Validation(c, b)) -> Validation(c, b)</p></div></div><div class="code"><div class="wrapper">  <span class="o">or-</span><span class="k">else</span><span class="o">:</span> <span class="nf">(_) -&gt;</span> <span class="p">...</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h4 id="function-merge">Function: merge</h4>
 
 <p>Returns the value of whichever side of the disjunction that is
@@ -148,9 +137,8 @@ depending on which one is present.
   <span class="o">is-</span><span class="nv">success: </span><span class="kc">true</span>
   <span class="nv">ap: </span><span class="nf">(b) -&gt;</span>
     <span class="o">|</span> <span class="nx">b</span><span class="p">.</span><span class="nx">is-failure</span> <span class="o">=&gt;</span> <span class="nx">b</span>
-    <span class="o">|</span> <span class="nx">otherwise</span>    <span class="o">=&gt;</span> <span class="k">new</span> <span class="nx">Success</span><span class="p">(</span><span class="nx">@value</span> <span class="nx">b</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span>
+    <span class="o">|</span> <span class="nx">otherwise</span>    <span class="o">=&gt;</span> <span class="k">new</span> <span class="nx">Success</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">value</span> <span class="nx">@value</span><span class="p">)</span>
   <span class="nv">map: </span><span class="nf">(f) -&gt;</span> <span class="nx">@</span><span class="k">of</span> <span class="p">(</span><span class="nx">f</span> <span class="nx">@value</span><span class="p">)</span>
-  <span class="nv">chain: </span><span class="nf">(f) -&gt;</span> <span class="nx">f</span> <span class="nx">@value</span>
   <span class="k">to</span><span class="o">-</span><span class="nv">string: </span><span class="nf">-&gt;</span> <span class="s">&quot;Validation.Success(</span><span class="si">#{</span><span class="nx">@value</span><span class="si">}</span><span class="s">)&quot;</span>
   <span class="o">is-</span><span class="nv">equal: </span><span class="nf">(a) -&gt;</span> <span class="nx">a</span><span class="p">.</span><span class="nx">is-success</span> <span class="o">and</span> <span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">value</span> <span class="o">is</span> <span class="nx">@value</span><span class="p">)</span>
   <span class="nv">get: </span><span class="nf">-&gt;</span> <span class="nx">@value</span>
@@ -169,7 +157,6 @@ depending on which one is present.
     <span class="o">|</span> <span class="nx">b</span><span class="p">.</span><span class="nx">is-failure</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="nx">Failure</span><span class="p">(</span><span class="nx">@value</span> <span class="o">++</span> <span class="nx">b</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span>
     <span class="o">|</span> <span class="nx">otherwise</span>    <span class="o">=&gt;</span> <span class="k">this</span>
   <span class="nv">map: </span><span class="nf">(_) -&gt;</span> <span class="k">this</span>
-  <span class="nv">chain: </span><span class="nf">(_) -&gt;</span> <span class="k">this</span>
   <span class="k">to</span><span class="o">-</span><span class="nv">string: </span><span class="nf">-&gt;</span> <span class="s">&quot;Validation.Failure(</span><span class="si">#{</span><span class="nx">@value</span><span class="si">}</span><span class="s">)&quot;</span>
   <span class="o">is-</span><span class="nv">equal: </span><span class="nf">(a) -&gt;</span> <span class="nx">a</span><span class="p">.</span><span class="nx">is-failure</span> <span class="o">and</span> <span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">value</span> <span class="o">is</span> <span class="nx">@value</span><span class="p">)</span>
   <span class="nv">get: </span><span class="nf">-&gt;</span> <span class="k">throw</span> <span class="k">new</span> <span class="nx">TypeError</span><span class="p">(</span><span class="s">&quot;Can&#39;t extract the value of a Failure(a)&quot;</span><span class="p">)</span>

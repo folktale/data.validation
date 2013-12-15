@@ -21,8 +21,8 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           "type": "heading",
           "data": {
             "level": 1,
-            "title": "Monads: Validation",
-            "slug": "monads-validation",
+            "title": "Applivative: Validation",
+            "slug": "applivative-validation",
             "isFileHeader": true
           },
           "depth": 1,
@@ -105,7 +105,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             }
           ]
         },
-        "title": "Monads: Validation"
+        "title": "Applivative: Validation"
       },
       "depth": 1,
       "outline": [
@@ -214,8 +214,8 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "type": "heading",
               "data": {
                 "level": 1,
-                "title": "Monad: Validation",
-                "slug": "monad-validation",
+                "title": "Applicative: Validation",
+                "slug": "applicative-validation",
                 "isFileHeader": true
               },
               "depth": 1,
@@ -333,25 +333,6 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                             "level": 4,
                             "title": "Function: map",
                             "slug": "function-map"
-                          },
-                          "depth": 4
-                        }
-                      ]
-                    }, {
-                      "type": "heading",
-                      "data": {
-                        "level": 3,
-                        "title": "Chain",
-                        "slug": "chain"
-                      },
-                      "depth": 3,
-                      "children": [
-                        {
-                          "type": "heading",
-                          "data": {
-                            "level": 4,
-                            "title": "Function: chain",
-                            "slug": "function-chain"
                           },
                           "depth": 4
                         }
@@ -509,7 +490,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 }
               ]
             },
-            "title": "Monad: Validation"
+            "title": "Applicative: Validation"
           },
           "depth": 2,
           "outline": [
@@ -626,25 +607,6 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                         "level": 4,
                         "title": "Function: map",
                         "slug": "function-map"
-                      },
-                      "depth": 4
-                    }
-                  ]
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Chain",
-                    "slug": "chain"
-                  },
-                  "depth": 3,
-                  "children": [
-                    {
-                      "type": "heading",
-                      "data": {
-                        "level": 4,
-                        "title": "Function: chain",
-                        "slug": "function-chain"
                       },
                       "depth": 4
                     }
@@ -869,13 +831,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "type": "heading",
                   "data": {
                     "level": 1,
-                    "title": "Specification for the monadic laws",
-                    "slug": "specification-for-the-monadic-laws",
+                    "title": "Specification for the algebraic laws",
+                    "slug": "specification-for-the-algebraic-laws",
                     "isFileHeader": true
                   },
                   "depth": 1
                 },
-                "title": "Specification for the monadic laws"
+                "title": "Specification for the algebraic laws"
               },
               "depth": 3,
               "outline": []
