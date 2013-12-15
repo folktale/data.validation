@@ -1,11 +1,11 @@
-# # Monad: Validation
+# # Applicative: Validation
 #
 # The `Validation(a, b)` is a disjunction that's more appropriate for
 # validating inputs, or any use case where you want to aggregate
-# failures. Not only the `Validation` monad provides a better
-# terminology for working with such cases (`Failure` and `Success`
-# versus `Left` and `Right`), it also allows one to easily aggregate
-# failures and successes as an Applicative Functor.
+# failures. Not only the `Validation` provides a better terminology for
+# working with such cases (`Failure` and `Success` versus `Left` and
+# `Right`), it also allows one to easily aggregate failures and
+# successes as an Applicative Functor.
 
 /** ^
  * Copyright (c) 2013 Quildreen Motta
@@ -32,9 +32,9 @@
 
 # ## Class: Validation(a, b)
 #
-# The `Validation(a, b)` monad.
+# The `Validation(a, b)` applicative functor.
 #
-# + type: Validation(a, b) <: Applicative, Functor, Chain, Show, Eq
+# + type: Validation(a, b) <: Applicative, Functor, Show, Eq
 class Validation
   ->
 
@@ -42,14 +42,14 @@ class Validation
 
   # #### Function: Failure
   #
-  # Constructs a new `Validation(a, b)` monad holding a `Failure` value.
+  # Constructs a new `Validation(a, b)` applicative holding a `Failure` value.
   #  
   # + type: a -> Validation(a, b)
   Failure: (a) -> new Failure(a)
 
   # #### Function: Success
   #
-  # Constructs a new `Validation(a, b)` monad holding a `Success` value.
+  # Constructs a new `Validation(a, b)` applicative holding a `Success` value.
   #  
   # + type: b -> Validation(a, b)
   Success: (b) -> new Success(b)
@@ -91,7 +91,7 @@ class Validation
   # value `b`.
   #  
   # `b` can be any value, including `null`, `undefined` or another
-  # `Validation(a, b)` monad.
+  # `Validation(a, b)` applicative.
   #  
   # + type: b -> Validation(a, b)
   of: (b) -> new Success(b)
@@ -103,7 +103,7 @@ class Validation
   # aggregates the errors with a semigroup — both Failures must hold a
   # semigroup.
   #  
-  # + type: (@Validation(a, b -> c)) => Validation(a, b) -> Validation(a, c)
+  # + type: (Semigroup s, @Validation(s a, b)) => Validation(s a, b -> c) -> Validation(s a, c)
   ap: (_) -> ...
 
 
@@ -111,29 +111,18 @@ class Validation
 
   # #### Function: map
   #
-  # Transforms the `Success` value of the `Validation(a, b)` monad using
+  # Transforms the `Success` value of the `Validation(a, b)` applicative using
   # a regular unary function.
   #  
   # + type: (@Validation(a, b)) => (b -> c) -> Validation(a, c)
   map: (_) -> ...
 
 
-  # ### Chain ##########################################################
-
-  # #### Function: chain
-  #
-  # Transforms the `Success` value of the `Validation(a, b)` monad using
-  # an unary function to a monad of the same type.
-  #  
-  # + type: (@Validation(a, b)) => (b -> Validation(a, c)) -> Validation(a, c)
-  chain: (_) -> ...
-
-
   # ### Show ###########################################################
 
   # #### Function: to-string
   #
-  # Returns a textual representation of the `Validation(a, c)` monad.
+  # Returns a textual representation of the `Validation(a, c)` applicative.
   #  
   # + type: (@Validation(a, b)) => Unit -> String
   to-string: -> ...
@@ -143,8 +132,8 @@ class Validation
 
   # #### Function: is-equal
   #
-  # Tests if an `Validation(a, b)` monad is equal to another
-  # `Validation(a, b)` monad.
+  # Tests if an `Validation(a, b)` applicative is equal to another
+  # `Validation(a, b)` applicative.
   #
   # + type: (@Validation(a, b)) => Validation(a, b) -> Boolean
   is-equal: (_) -> ...
@@ -154,19 +143,19 @@ class Validation
 
   # #### Function: get
   #
-  # Extracts the `Success` value out of the `Validation(a, b)` monad, if
+  # Extracts the `Success` value out of the `Validation(a, b)` applicative, if
   # it exists. Otherwise throws a `TypeError`.
   #  
   # + see: get-or-else — A getter that can handle failures.
   # + see: merge — Returns the convergence of both values.
   # + type: (@Validation(a, b), *throws) => Unit -> b
-  # + throws: TypeError — if the monad doesn't have a `Success` value.
+  # + throws: TypeError — if the applicative doesn't have a `Success` value.
   get: -> ...
 
   # #### Function: get-or-else
   #
-  # Extracts the `Success` value out of the `Validation(a, b)` monad. If
-  # the monad doesn't have a `Success` value, returns the given default.
+  # Extracts the `Success` value out of the `Validation(a, b)` applicative. If
+  # the applicative doesn't have a `Success` value, returns the given default.
   #
   # + type: (@Validation(a, b)) => b -> b
   get-or-else: (_) -> ...
@@ -174,7 +163,7 @@ class Validation
   # #### Function: or-else
   #
   # Transforms a `Failure` value into a new `Validation(a, b)`
-  # monad. Does nothing if the monad contains a `Success` value.
+  # applicative. Does nothing if the applicative contains a `Success` value.
   #
   # + type: (@Validation(a, b)) => (a -> Validation(c, b)) -> Validation(c, b)
   or-else: (_) -> ...
@@ -229,9 +218,8 @@ class Success extends Validation
   is-success: true
   ap: (b) ->
     | b.is-failure => b
-    | otherwise    => new Success(@value b.value)
+    | otherwise    => new Success(b.value @value)
   map: (f) -> @of (f @value)
-  chain: (f) -> f @value
   to-string: -> "Validation.Success(#{@value})"
   is-equal: (a) -> a.is-success and (a.value is @value)
   get: -> @value
@@ -253,7 +241,6 @@ class Failure extends Validation
     | b.is-failure => new Failure(@value ++ b.value)
     | otherwise    => this
   map: (_) -> this
-  chain: (_) -> this
   to-string: -> "Validation.Failure(#{@value})"
   is-equal: (a) -> a.is-failure and (a.value is @value)
   get: -> throw new TypeError("Can't extract the value of a Failure(a)")

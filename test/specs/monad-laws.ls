@@ -1,4 +1,4 @@
-# # Specification for the monadic laws
+# # Specification for the algebraic laws
 
 /** ^
  * Copyright (c) 2013 Quildreen Motta
@@ -53,10 +53,3 @@ module.exports = spec 'Algebraic laws' (o, spec) ->
     o '2. Composition'  laws.applicative.composition(make).as-test!
     o '3. Homomorphism' laws.applicative.homomorphism(make).as-test!
     o '4. Interchange'  laws.applicative.interchange(make).as-test!
- 
-  spec ': Chain' (o) ->
-    o '1. Associativity' laws.chain.associativity(make).as-test!
- 
-  spec ': Monad' (o) ->
-    o '1. Left identity'  laws.monad.left-identity(make).as-test!
-    o '2. Right identity' laws.monad.right-identity(make).as-test!

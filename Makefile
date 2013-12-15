@@ -12,16 +12,16 @@ lib: src/*.ls
 dist:
 	mkdir -p dist
 
-dist/monads.validation.umd.js: compile dist
-	$(browserify) lib/index.js --standalone folktale.monads.Validation > $@
+dist/applicatives.validation.umd.js: compile dist
+	$(browserify) lib/index.js --standalone folktale.applicatives.Validation > $@
 
-dist/monads.validation.umd.min.js: dist/monads.validation.umd.js
+dist/applicatives.validation.umd.min.js: dist/applicatives.validation.umd.js
 	$(uglify) --mangle - < $^ > $@
 
 # ----------------------------------------------------------------------
-bundle: dist/monads.validation.umd.js
+bundle: dist/applicatives.validation.umd.js
 
-minify: dist/monads.validation.umd.min.js
+minify: dist/applicatives.validation.umd.min.js
 
 compile: lib
 
@@ -37,14 +37,14 @@ test:
 	$(lsc) test/tap.ls
 
 package: compile documentation bundle minify
-	mkdir -p dist/monads.validation-$(VERSION)
-	cp -r docs/literate dist/monads.validation-$(VERSION)/docs
-	cp -r lib dist/monads.validation-$(VERSION)
-	cp dist/*.js dist/monads.validation-$(VERSION)
-	cp package.json dist/monads.validation-$(VERSION)
-	cp README.md dist/monads.validation-$(VERSION)
-	cp LICENCE dist/monads.validation-$(VERSION)
-	cd dist && tar -czf monads.validation-$(VERSION).tar.gz monads.validation-$(VERSION)
+	mkdir -p dist/applicatives.validation-$(VERSION)
+	cp -r docs/literate dist/applicatives.validation-$(VERSION)/docs
+	cp -r lib dist/applicatives.validation-$(VERSION)
+	cp dist/*.js dist/applicatives.validation-$(VERSION)
+	cp package.json dist/applicatives.validation-$(VERSION)
+	cp README.md dist/applicatives.validation-$(VERSION)
+	cp LICENCE dist/applicatives.validation-$(VERSION)
+	cd dist && tar -czf applicatives.validation-$(VERSION).tar.gz applicatives.validation-$(VERSION)
 
 publish: clean
 	npm install
