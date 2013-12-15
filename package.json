@@ -1,6 +1,6 @@
 {
   "name": "applicative.validation",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A disjunction that's more appropriate for validating inputs with better vocabulary & straight-forward failure aggregation.",
   "main": "lib/index.js",
   "scripts": {
