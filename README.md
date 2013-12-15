@@ -1,4 +1,4 @@
-Applivative: Validation
+Applicative: Validation
 =======================
 
 [![Build Status](https://secure.travis-ci.org/folktale/applicatives.validation.png?branch=master)](https://travis-ci.org/folktale/applicatives.validation)
