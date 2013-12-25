@@ -103,7 +103,7 @@ class Validation
   # aggregates the errors with a semigroup — both Failures must hold a
   # semigroup.
   #  
-  # + type: (Semigroup s, @Validation(s a, b)) => Validation(s a, b -> c) -> Validation(s a, c)
+  # + type: (Semigroup s, @Validation(s a, b -> c)) => Validation(s a, b) -> Validation(s a, c)
   ap: (_) -> ...
 
 
@@ -218,7 +218,7 @@ class Success extends Validation
   is-success: true
   ap: (b) ->
     | b.is-failure => b
-    | otherwise    => new Success(b.value @value)
+    | otherwise    => b.map @value
   map: (f) -> @of (f @value)
   to-string: -> "Validation.Success(#{@value})"
   is-equal: (a) -> a.is-success and (a.value is @value)
