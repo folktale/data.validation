@@ -4,7 +4,7 @@ The Validation Applicative
 [![Build Status](https://secure.travis-ci.org/folktale/data.validation.png?branch=master)](https://travis-ci.org/folktale/data.validation)
 [![NPM version](https://badge.fury.io/js/data.validation.png)](http://badge.fury.io/js/data.validation)
 [![Dependencies Status](https://david-dm.org/folktale/data.validation.png)](https://david-dm.org/folktale/data.validation)
-[![experimental](http://hughsk.github.io/stability-badges/dist/experimental.svg)](http://github.com/hughsk/stability-badges)
+[![stable](http://hughsk.github.io/stability-badges/dist/stable.svg)](http://github.com/hughsk/stability-badges)
 
 The `Validation(a, b)` is a disjunction that's more appropriate for validating
 inputs, or any use case where you want to aggregate failures. Not only the
