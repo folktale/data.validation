@@ -1,5 +1,5 @@
 {
-  "name": "applicative.validation",
+  "name": "data.validation",
   "version": "0.3.0",
   "description": "A disjunction that's more appropriate for validating inputs with better vocabulary & straight-forward failure aggregation.",
   "main": "lib/index.js",
@@ -9,16 +9,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/folktale/applicatives.validation"
+    "url": "https://github.com/folktale/data.validation"
   },
   "keywords": [
     "fantasy-land",
-    "folktale"
+    "folktale",
+    "algebraic",
+    "validation",
+    "disjunction",
+    "applicative",
+    "functor"
   ],
   "author": "Quildreen Motta",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/folktale/applicatives.validation/issues"
+    "url": "https://github.com/folktale/data.validation/issues"
   },
   "dependencies": {},
   "devDependencies": {
