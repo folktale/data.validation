@@ -13,7 +13,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           "commentsOnly": true,
           "name": "Markdown"
         },
-        "sourcePath": "/home/queen/Projects/folktale/monads/validation/README.md",
+        "sourcePath": "/home/queen/Projects/folktale/data/validation/README.md",
         "projectPath": "README.md",
         "targetPath": "index",
         "pageTitle": "index",
@@ -21,8 +21,8 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           "type": "heading",
           "data": {
             "level": 1,
-            "title": "Applicative: Validation",
-            "slug": "applicative-validation",
+            "title": "The Validation Applicative",
+            "slug": "the-validation-applicative",
             "isFileHeader": true
           },
           "depth": 1,
@@ -105,7 +105,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             }
           ]
         },
-        "title": "Applicative: Validation"
+        "title": "The Validation Applicative"
       },
       "depth": 1,
       "outline": [
@@ -206,7 +206,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "LiveScript"
             },
-            "sourcePath": "/home/queen/Projects/folktale/monads/validation/src/index.ls",
+            "sourcePath": "/home/queen/Projects/folktale/data/validation/src/index.ls",
             "projectPath": "src/index.ls",
             "targetPath": "src/index",
             "pageTitle": "src/index",
@@ -793,7 +793,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "^",
                   "name": "LiveScript"
                 },
-                "sourcePath": "/home/queen/Projects/folktale/monads/validation/test/specs/index.ls",
+                "sourcePath": "/home/queen/Projects/folktale/data/validation/test/specs/index.ls",
                 "projectPath": "test/specs/index.ls",
                 "targetPath": "test/specs/index",
                 "pageTitle": "test/specs/index",
@@ -823,7 +823,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "^",
                   "name": "LiveScript"
                 },
-                "sourcePath": "/home/queen/Projects/folktale/monads/validation/test/specs/monad-laws.ls",
+                "sourcePath": "/home/queen/Projects/folktale/data/validation/test/specs/monad-laws.ls",
                 "projectPath": "test/specs/monad-laws.ls",
                 "targetPath": "test/specs/monad-laws",
                 "pageTitle": "test/specs/monad-laws",
@@ -841,6 +841,36 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               },
               "depth": 3,
               "outline": []
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".ls", "Slakefile"],
+                  "pygmentsLexer": "livescript",
+                  "multiLineComment": ["/*", "*", "*/"],
+                  "singleLineComment": ["#"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "LiveScript"
+                },
+                "sourcePath": "/home/queen/Projects/folktale/data/validation/test/specs/validation.ls",
+                "projectPath": "test/specs/validation.ls",
+                "targetPath": "test/specs/validation",
+                "pageTitle": "test/specs/validation",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "Specification for Validation",
+                    "slug": "specification-for-validation",
+                    "isFileHeader": true
+                  },
+                  "depth": 1
+                },
+                "title": "Specification for Validation"
+              },
+              "depth": 3,
+              "outline": []
             }
           ]
         }, {
@@ -855,7 +885,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "LiveScript"
             },
-            "sourcePath": "/home/queen/Projects/folktale/monads/validation/test/tap.ls",
+            "sourcePath": "/home/queen/Projects/folktale/data/validation/test/tap.ls",
             "projectPath": "test/tap.ls",
             "targetPath": "test/tap",
             "pageTitle": "test/tap",

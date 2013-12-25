@@ -1,8 +1,8 @@
-<!DOCTYPE html><html lang="en"><head><title>index</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content=""><meta name="groc-document-path" content="index"><meta name="groc-project-path" content="README.md"><link rel="stylesheet" type="text/css" media="all" href="assets/style.css"><link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Arvo|PT+Sans"><script type="text/javascript" src="assets/behavior.js"></script><body><div id="meta"><div class="file-path">README.md</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h1 id="applicative-validation">Applicative: Validation</h1>
+<!DOCTYPE html><html lang="en"><head><title>index</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content=""><meta name="groc-document-path" content="index"><meta name="groc-project-path" content="README.md"><link rel="stylesheet" type="text/css" media="all" href="assets/style.css"><link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Arvo|PT+Sans"><script type="text/javascript" src="assets/behavior.js"></script><body><div id="meta"><div class="file-path">README.md</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h1 id="the-validation-applicative">The Validation Applicative</h1>
 
-<p><a href="https://travis-ci.org/folktale/applicatives.validation"><img src="https://secure.travis-ci.org/folktale/applicatives.validation.png?branch=master" alt="Build Status" title="" /></a>
-<a href="http://badge.fury.io/js/applicatives.validation"><img src="https://badge.fury.io/js/applicatives.validation.png" alt="NPM version" title="" /></a>
-<a href="https://david-dm.org/folktale/applicatives.validation"><img src="https://david-dm.org/folktale/applicatives.validation.png" alt="Dependencies Status" title="" /></a>
+<p><a href="https://travis-ci.org/folktale/data.validation"><img src="https://secure.travis-ci.org/folktale/data.validation.png?branch=master" alt="Build Status" title="" /></a>
+<a href="http://badge.fury.io/js/data.validation"><img src="https://badge.fury.io/js/data.validation.png" alt="NPM version" title="" /></a>
+<a href="https://david-dm.org/folktale/data.validation"><img src="https://david-dm.org/folktale/data.validation.png" alt="Dependencies Status" title="" /></a>
 <a href="http://github.com/hughsk/stability-badges"><img src="http://hughsk.github.io/stability-badges/dist/experimental.svg" alt="experimental" title="" /></a></p>
 
 <p>The <code>Validation(a, b)</code> is a disjunction that's more appropriate for validating
@@ -13,7 +13,7 @@ easily aggregate failures and successes as an Applicative Functor.</p>
 
 <h2 id="example">Example</h2>
 
-<pre><code class="js">var Validation = require(applicatives.validation')
+<pre><code class="js">var Validation = require(data.validation')
 var Success = Validation.Success
 var Failure = Validation.Failure
 
@@ -61,33 +61,33 @@ isPasswordValid("rosesarered$andstuff")
 <p>The easiest way is to grab it from NPM. If you're running in a Browser
 environment, you can use <a href="http://browserify.org/">Browserify</a></p>
 
-<pre><code>$ npm install applicatives.validation
+<pre><code>$ npm install data.validation
 </code></pre>
 
 <h3 id="using-with-commonjs">Using with CommonJS</h3>
 
-<p>If you're not using NPM, <a href="https://github.com/folktale/applicatives.validation/releases/download/v0.2.0/applicatives.validation-0.2.0.tar.gz">Download the latest release</a>, and require
-the <code>applicatives.validation.umd.js</code> file:</p>
+<p>If you're not using NPM, <a href="https://github.com/folktale/data.validation/releases/download/v1.0.0/data.validation-1.0.0.tar.gz">Download the latest release</a>, and require
+the <code>data.validation.umd.js</code> file:</p>
 
-<pre><code class="js">var Validation = require('applicatives.validation')
+<pre><code class="js">var Validation = require('data.validation')
 </code></pre>
 
 <h3 id="using-with-amd">Using with AMD</h3>
 
-<p><a href="https://github.com/folktale/applicatives.validation/releases/download/v0.2.0/applicatives.validation-0.2.0.tar.gz">Download the latest release</a>, and require the <code>applicatives.validation.umd.js</code>
+<p><a href="https://github.com/folktale/data.validation/releases/download/v1.0.0/data.validation-1.0.0.tar.gz">Download the latest release</a>, and require the <code>data.validation.umd.js</code>
 file:</p>
 
-<pre><code class="js">require(['applicatives.validation'], function(Validation) {
+<pre><code class="js">require(['data.validation'], function(Validation) {
   ( ... )
 })
 </code></pre>
 
 <h3 id="using-without-modules">Using without modules</h3>
 
-<p><a href="https://github.com/folktale/applicatives.validation/releases/download/v0.2.0/applicatives.validation-0.2.0.tar.gz">Download the latest release</a>, and load the <code>applicatives.validation.umd.js</code>
-file. The properties are exposed in the global <code>folktale.applicatives.Validation</code> object:</p>
+<p><a href="https://github.com/folktale/data.validation/releases/download/v1.0.0/data.validation-1.0.0.tar.gz">Download the latest release</a>, and load the <code>data.validation.umd.js</code>
+file. The properties are exposed in the global <code>folktale.data.validation</code> object:</p>
 
-<pre><code class="html">&lt;script src="/path/to/applicatives.validation.umd.js"&gt;&lt;/script&gt;
+<pre><code class="html">&lt;script src="/path/to/data.validation.umd.js"&gt;&lt;/script&gt;
 </code></pre>
 
 <h3 id="compiling-from-source">Compiling from source</h3>
@@ -95,21 +95,21 @@ file. The properties are exposed in the global <code>folktale.applicatives.Valid
 <p>If you want to compile this library from the source, you'll need <a href="http://git-scm.com/">Git</a>,
 <a href="http://www.gnu.org/software/make/">Make</a>, <a href="http://nodejs.org/">Node.js</a>, and run the following commands:</p>
 
-<pre><code>$ git clone git://github.com/folktale/applicatives.validation.git
-$ cd applicatives.validation
+<pre><code>$ git clone git://github.com/folktale/data.validation.git
+$ cd data.validation
 $ npm install
 $ make bundle
 </code></pre>
 
-<p>This will generate the <code>dist/applicatives.validation.umd.js</code> file, which you can load in
+<p>This will generate the <code>dist/data.validation.umd.js</code> file, which you can load in
 any JavaScript environment.</p>
 
 <h2 id="documentation">Documentation</h2>
 
-<p>You can <a href="http://folktale.github.io/applicatives.validation">read the documentation online</a> or build it yourself:</p>
+<p>You can <a href="http://folktale.github.io/data.validation">read the documentation online</a> or build it yourself:</p>
 
-<pre><code>$ git clone git://github.com/folktale/applicatives.validation.git
-$ cd applicatives.validation
+<pre><code>$ git clone git://github.com/folktale/data.validation.git
+$ cd data.validation
 $ npm install
 $ make documentation
 </code></pre>
@@ -125,6 +125,10 @@ platforms by the use of shims. Just include <a href="https://github.com/kriskowa
 
 <p>Copyright (c) 2013 Quildreen Motta.</p>
 
-<p>Released under the <a href="https://github.com/folktale/applicatives.validation/blob/master/LICENCE">MIT licence</a>.</p>
+<p>Released under the <a href="https://github.com/folktale/data.validation/blob/master/LICENCE">MIT licence</a>.</p>
 
-<!-- links --></div></div></div></div></body></html>
+<!-- links -->
+
+<!-- [release: https://github.com/folktale/data.validation/releases/download/v$VERSION/data.validation-$VERSION.tar.gz] -->
+
+<!-- [/release] --></div></div></div></div></body></html>

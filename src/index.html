@@ -137,7 +137,7 @@ depending on which one is present.
   <span class="o">is-</span><span class="nv">success: </span><span class="kc">true</span>
   <span class="nv">ap: </span><span class="nf">(b) -&gt;</span>
     <span class="o">|</span> <span class="nx">b</span><span class="p">.</span><span class="nx">is-failure</span> <span class="o">=&gt;</span> <span class="nx">b</span>
-    <span class="o">|</span> <span class="nx">otherwise</span>    <span class="o">=&gt;</span> <span class="k">new</span> <span class="nx">Success</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">value</span> <span class="nx">@value</span><span class="p">)</span>
+    <span class="o">|</span> <span class="nx">otherwise</span>    <span class="o">=&gt;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">map</span> <span class="nx">@value</span>
   <span class="nv">map: </span><span class="nf">(f) -&gt;</span> <span class="nx">@</span><span class="k">of</span> <span class="p">(</span><span class="nx">f</span> <span class="nx">@value</span><span class="p">)</span>
   <span class="k">to</span><span class="o">-</span><span class="nv">string: </span><span class="nf">-&gt;</span> <span class="s">&quot;Validation.Success(</span><span class="si">#{</span><span class="nx">@value</span><span class="si">}</span><span class="s">)&quot;</span>
   <span class="o">is-</span><span class="nv">equal: </span><span class="nf">(a) -&gt;</span> <span class="nx">a</span><span class="p">.</span><span class="nx">is-success</span> <span class="o">and</span> <span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">value</span> <span class="o">is</span> <span class="nx">@value</span><span class="p">)</span>
