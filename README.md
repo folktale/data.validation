@@ -16,7 +16,7 @@ easily aggregate failures and successes as an Applicative Functor.
 ## Example
 
 ```js
-var Validation = require(data.validation')
+var Validation = require('data.validation')
 var Success = Validation.Success
 var Failure = Validation.Failure
 
@@ -40,7 +40,7 @@ function liftNel(a) {
   return [a]
 }
 
-function k(a){ return function(b) {
+function k(a) { return function(b) {
   return a
 }}
 
