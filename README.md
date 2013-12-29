@@ -22,27 +22,20 @@ var Failure = Validation.Failure
 
 function isPasswordLongEnough(a) {
   return a.length > 6?    Success(a)
-  :      /* otherwise */  Failure("Password must have more than 6 characters")
+  :      /* otherwise */  Failure(["Password must have more than 6 characters"])
 }
 
 function isPasswordStrongEnough(a) {
   return /[\W]/.test(a)?  Success(a)
-  :      /* otherwise */  Failure("Password must contain special characters")
+  :      /* otherwise */  Failure(["Password must contain special characters"])
 }
 
 function isPasswordValid(a) {
-  return [isPasswordLongEnough(a), isPasswordStrongEnough(a)]
-           .map(function(x){ return x.bimap(liftNel, k) })
-           .reduce(function(a, b) { return a.ap(b) })
+  return Success(function(x){ return function(y){ return a }})
+           .ap(isPasswordLongEnough(a))
+           .ap(isPasswordStrongEnough(a))
 }
 
-function liftNel(a) {
-  return [a]
-}
-
-function k(a) { return function(b) {
-  return a
-}}
 
 isPasswordValid("foo")
 // => Validation.Failure([
