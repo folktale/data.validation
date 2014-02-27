@@ -202,12 +202,13 @@ class Validation
   # + type: (@Validation(a, b)) => (a -> c) -> (b -> d) -> Validation(c, d)
   bimap: (f, g) --> ...
   
-  # #### Function: left-map
+  # #### Function: failure-map
   #
-  # Maps the left side of the disjunction.
+  # Maps the failure side of the disjunction.
   #  
   # + type: (@Validation(a, b)) => (a -> c) -> Validation(c, b)
-  left-map: (f) -> ...
+  failure-map: (f) -> ...
+  left-map: (f) -> @failure-map f
 
 
 # ## Class: Success(a)
@@ -228,7 +229,7 @@ class Success extends Validation
   fold: (_, g) -> g @value
   swap: -> new Failure(@value)
   bimap: (_, g) -> new Success(g @value)
-  left-map: (_) -> this
+  failure-map: (_) -> this
   
 
 # ## Class: Failure(a)
@@ -249,7 +250,7 @@ class Failure extends Validation
   fold: (f, _) -> f @value
   swap: -> new Success(@value)
   bimap: (f, _) -> new Failure(f @value)
-  left-map: (f) -> new Failure(f @value)
+  failure-map: (f) -> new Failure(f @value)
 
 
 # ## Exports

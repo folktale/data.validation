@@ -171,6 +171,16 @@ module.exports = spec 'Validation' (o, spec) ->
          Success(a).bimap(k b; k c).is-equal Success(c)
        .as-test!
 
+  spec 'failure-map(f)' (o) ->
+    o 'For failures should return a new failure mapped by f' do
+       for-all(Any, Any).given (!==) .satisfy (a, b) ->
+         Failure(a).failure-map(k b).is-equal Failure(b)
+       .as-test!
+    o 'For successes should return itself' do
+       for-all(Any, Any).given (!==) .satisfy (a, b) ->
+         Success(a).failure-map(k b).is-equal Success(a)
+       .as-test!
+
   spec 'left-map(f)' (o) ->
     o 'For lefts should return a new left mapped by f' do
        for-all(Any, Any).given (!==) .satisfy (a, b) ->
