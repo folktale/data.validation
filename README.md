@@ -150,6 +150,6 @@ Released under the [MIT licence](https://github.com/folktale/data.validation/blo
 [es5-shim]: https://github.com/kriskowal/es5-shim
 [docs]: http://folktale.github.io/data.validation
 <!-- [release: https://github.com/folktale/data.validation/releases/download/v$VERSION/data.validation-$VERSION.tar.gz] -->
-[release]: https://github.com/folktale/data.validation/releases/download/v1.0.0/data.validation-1.0.0.tar.gz
+[release]: https://github.com/folktale/data.validation/releases/download/v1.1.1/data.validation-1.1.1.tar.gz
 <!-- [/release] -->
 
