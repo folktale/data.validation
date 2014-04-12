@@ -1,6 +1,6 @@
 {
   "name": "data.validation",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "A disjunction that's more appropriate for validating inputs with better vocabulary & straight-forward failure aggregation.",
   "main": "lib/index.js",
   "scripts": {
@@ -27,13 +27,14 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "browserify": "git://github.com/robotlolita/node-browserify",
-    "groc": "git://github.com/robotlolita/groc#typography",
     "LiveScript": "~1.2.0",
     "hifive-tap": "~0.1.0",
     "hifive": "~0.1.0",
     "uglify-js": "~2.4.3",
-    "laws": "~0.2.0",
-    "claire": "~0.4.1"
+    "laws": "^0.2.1",
+    "claire": "~0.4.1",
+    "ink-docstrap": "git://github.com/robotlolita/docstrap",
+    "jsdoc": "^3.3.0-alpha5",
+    "browserify": "^3.41.0"
   }
 }

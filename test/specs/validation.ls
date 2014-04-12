@@ -24,7 +24,7 @@
  */
 
 spec = (require 'hifive')!
-Validation = require '../../src'
+Validation = require '../../lib'
 {for-all, data: {Any:BigAny, Int}, sized} = require 'claire'
 {ok, throws} = require 'assert'
 

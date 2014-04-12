@@ -1,13 +1,9 @@
 bin        = $(shell npm bin)
 lsc        = $(bin)/lsc
 browserify = $(bin)/browserify
-groc       = $(bin)/groc
+jsdoc      = $(bin)/jsdoc
 uglify     = $(bin)/uglifyjs
 VERSION    = $(shell node -e 'console.log(require("./package.json").version)')
-
-
-lib: src/*.ls
-	$(lsc) -o lib -c src/*.ls
 
 dist:
 	mkdir -p dist
@@ -23,22 +19,22 @@ bundle: dist/data.validation.umd.js
 
 minify: dist/data.validation.umd.min.js
 
-compile: lib
-
 documentation:
-	$(groc) --index "README.md"                                              \
-	        --out "docs/literate"                                            \
-	        src/*.ls test/*.ls test/specs/**.ls README.md
+	$(jsdoc) --configure jsdoc.conf.json
+	ABSPATH=$(shell cd "$(dirname "$0")"; pwd) $(MAKE) clean-docs
+
+clean-docs:
+	perl -pi -e "s?$$ABSPATH/??g" ./docs/*.html
 
 clean:
-	rm -rf dist build lib
+	rm -rf dist build
 
 test:
 	$(lsc) test/tap.ls
 
-package: compile documentation bundle minify
+package: documentation bundle minify
 	mkdir -p dist/data.validation-$(VERSION)
-	cp -r docs/literate dist/data.validation-$(VERSION)/docs
+	cp -r docs dist/data.validation-$(VERSION)
 	cp -r lib dist/data.validation-$(VERSION)
 	cp dist/*.js dist/data.validation-$(VERSION)
 	cp package.json dist/data.validation-$(VERSION)
