@@ -11,7 +11,7 @@
 		"template": "./node_modules/ink-docstrap/template"
 	},
 	"templates": {
-		"systemName": "Data.Either",
+		"systemName": "Data.Validation",
 		"theme": "cerulean",
 		"linenums": true,
 		"navType": "vertical",
