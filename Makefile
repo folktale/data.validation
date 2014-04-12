@@ -8,7 +8,7 @@ VERSION    = $(shell node -e 'console.log(require("./package.json").version)')
 dist:
 	mkdir -p dist
 
-dist/data.validation.umd.js: compile dist
+dist/data.validation.umd.js: dist
 	$(browserify) lib/index.js --standalone folktale.data.validation > $@
 
 dist/data.validation.umd.min.js: dist/data.validation.umd.js
