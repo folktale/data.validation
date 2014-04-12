@@ -1,0 +1,1696 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Data.Either Class: Validation</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	
+	<link type="text/css" rel="stylesheet" href="styles/site.cerulean.css">
+	
+</head>
+
+<body>
+<div class="container-fluid">
+	<div class="navbar navbar-fixed-top ">
+		<div class="navbar-inner">
+			<a class="brand" href="index.html">Data.Either</a>
+			<ul class="nav">
+				
+				<li class="dropdown">
+					<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b
+						class="caret"></b></a>
+
+					<ul class="dropdown-menu ">
+						
+						<li>
+							<a href="validation.html">lib/validation</a>
+						</li>
+						
+
+					</ul>
+				</li>
+				
+				<li class="dropdown">
+					<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b
+						class="caret"></b></a>
+
+					<ul class="dropdown-menu ">
+						
+						<li>
+							<a href="validation-Validation.html">Validation</a>
+						</li>
+						
+
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+	</div>
+
+	<div class="row-fluid">
+
+		
+		<div class="span8">
+			
+				<div id="main">
+					
+
+
+	<h1 class="page-title">Class: Validation</h1>
+<section>
+
+<header>
+    <h2>
+        <span class="ancestors"><a href="validation.html">lib/validation</a>~</span>
+    
+    Validation
+    </h2>
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+
+    
+        
+<dt>
+    <h4 class="name" id="Validation"><span class="type-signature"></span>new Validation<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+    <p class="summary">Validation[α, β] <: Applicative[β]
+                  , Functor[β]
+                  , Show
+                  , Eq</p>
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>The <code>Validation[α, β]</code> is a disjunction that's more appropriate for
+validating inputs, or any use case where you want to aggregate failures. Not
+only does the <code>Validation</code> provide a better terminology for working with
+such cases (<code>Failure</code> and <code>Success</code> versus <code>Failure</code> and <code>Success</code>), it also
+allows one to easily aggregate failures and successes as an Applicative
+Functor.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="validation.js.html">lib/validation.js</a>, <a href="validation.js.html#sunlight-1-line-50">line 50</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        <dl>
+            
+<dt>
+    <h4 class="name" id="isFailure"><span class="type-signature"></span>isFailure<span class="type-signature"></span></h4>
+    
+    
+    <p class="summary">Boolean</p>
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>True if the <code>Validation[α, β]</code> contains a <code>Failure</code> value.</p>
+    </div>
+    
+    
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="validation.js.html">lib/validation.js</a>, <a href="validation.js.html#sunlight-1-line-118">line 118</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="isSuccess"><span class="type-signature"></span>isSuccess<span class="type-signature"></span></h4>
+    
+    
+    <p class="summary">Boolean</p>
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>True if the <code>Validation[α, β]</code> contains a <code>Success</code> value.</p>
+    </div>
+    
+    
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="validation.js.html">lib/validation.js</a>, <a href="validation.js.html#sunlight-1-line-126">line 126</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+</dd>
+
+        </dl>
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
+            
+<dt>
+    <h4 class="name" id="Failure"><span class="type-signature">&lt;static> </span>Failure<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+    <p class="summary">a → Validation[α, β]</p>
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Constructs a new <code>Validation[α, β]</code> structure holding a <code>Failure</code> value.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="validation.js.html">lib/validation.js</a>, <a href="validation.js.html#sunlight-1-line-69">line 69</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="fromEither"><span class="type-signature">&lt;static> </span>fromEither<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+    <p class="summary">Either[α, β] → Validation[α, β]</p>
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Constructs a new <code>Either[α, β]</code> structure from a <code>Validation[α, β]</code> type.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="validation.js.html">lib/validation.js</a>, <a href="validation.js.html#sunlight-1-line-106">line 106</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="fromNullable"><span class="type-signature">&lt;static> </span>fromNullable<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+    <p class="summary">α → Validation[α, α]</p>
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Constructs a new <code>Validation[α, β]</code> structure from a nullable type.</p>
+<p>Takes the <code>Failure</code> case if the value is <code>null</code> or <code>undefined</code>. Takes the
+<code>Success</code> case otherwise.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="validation.js.html">lib/validation.js</a>, <a href="validation.js.html#sunlight-1-line-95">line 95</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="of"><span class="type-signature">&lt;static> </span>of<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+    <p class="summary">β → Validation[α, β]</p>
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Creates a new <code>Validation[α, β]</code> instance holding the <code>Success</code> value <code>b</code>.</p>
+<p><code>b</code> can be any value, including <code>null</code>, <code>undefined</code> or another
+<code>Validation[α, β]</code> structure.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="validation.js.html">lib/validation.js</a>, <a href="validation.js.html#sunlight-1-line-140">line 140</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="Success"><span class="type-signature">&lt;static> </span>Success<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+    <p class="summary">β → Validation[α, β]</p>
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Constructs a new <code>Etiher[α, β]</code> structure holding a <code>Success</code> value.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="validation.js.html">lib/validation.js</a>, <a href="validation.js.html#sunlight-1-line-79">line 79</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="ap"><span class="type-signature"></span>ap<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+    <p class="summary">(@Validation[α, β → γ], f:Applicative[_]) => f[β] → f[γ]</p>
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Applies the function inside the <code>Success</code> case of the <code>Validation[α, β]</code> structure
+to another applicative type.</p>
+<p>The <code>Validation[α, β]</code> should contain a function value, otherwise a <code>TypeError</code>
+is thrown.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="validation.js.html">lib/validation.js</a>, <a href="validation.js.html#sunlight-1-line-156">line 156</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="bimap"><span class="type-signature"></span>bimap<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+    <p class="summary">(@Validation[α, β]) => (α → γ), (β → δ) → Validation[γ, δ]</p>
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Maps both sides of the disjunction.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="validation.js.html">lib/validation.js</a>, <a href="validation.js.html#sunlight-1-line-333">line 333</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="failureMap"><span class="type-signature"></span>failureMap<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+    <p class="summary">(@Validation[α, β]) => (α → γ) → Validation[γ, β]</p>
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Maps the failure side of the disjunction.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="validation.js.html">lib/validation.js</a>, <a href="validation.js.html#sunlight-1-line-350">line 350</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="fold"><span class="type-signature"></span>fold<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+    <p class="summary">(@Validation[α, β]) => (α → γ), (β → γ) → γ</p>
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Applies a function to each case in this data structure.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="validation.js.html">lib/validation.js</a>, <a href="validation.js.html#sunlight-1-line-299">line 299</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="get"><span class="type-signature"></span>get<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+    <p class="summary">(@Validation[α, β]) => Void → β         :: partial, throws</p>
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Extracts the <code>Success</code> value out of the <code>Validation[α, β]</code> structure, if it
+exists. Otherwise throws a <code>TypeError</code>.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="validation.js.html">lib/validation.js</a>, <a href="validation.js.html#sunlight-1-line-237">line 237</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="validation-Validation.html#getOrElse">module:lib/validation~Validation#getOrElse</a> — A getter that can handle failures.</li>
+        
+            <li><a href="validation-Validation.html#merge">module:lib/validation~Validation#merge</a> — The convergence of both values.</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    <h5>Throws:</h5>
+    
+            
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        if the structure has no `Success` value.
+        </div>
+    </dt>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">TypeError</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+</dl>
+
+
+        
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getOrElse"><span class="type-signature"></span>getOrElse<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+    <p class="summary">(@Validation[α, β]) => β → β</p>
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Extracts the <code>Success</code> value out of the <code>Validation[α, β]</code> structure. If the
+structure doesn't have a <code>Success</code> value, returns the given default.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="validation.js.html">lib/validation.js</a>, <a href="validation.js.html#sunlight-1-line-255">line 255</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="isEqual"><span class="type-signature"></span>isEqual<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+    <p class="summary">(@Validation[α, β]) => Validation[α, β] → Boolean</p>
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Tests if an <code>Validation[α, β]</code> structure is equal to another <code>Validation[α, β]</code>
+structure.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="validation.js.html">lib/validation.js</a>, <a href="validation.js.html#sunlight-1-line-214">line 214</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="leftMap"><span class="type-signature"></span>leftMap<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+    <p class="summary">(@Validation[α, β]) => (α → γ) → Validation[γ, β]</p>
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Maps the failure side of the disjunction.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+        <dt class="important tag-deprecated">Deprecated:</dt><dd><ul class="dummy"><li>in favour of <a href="validation-Validation.html#failureMap">module:lib/validation~Validation#failureMap</a></li><ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="validation.js.html">lib/validation.js</a>, <a href="validation.js.html#sunlight-1-line-364">line 364</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="map"><span class="type-signature"></span>map<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+    <p class="summary">(@Validation[α, β]) => (β → γ) → Validation[α, γ]</p>
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Transforms the <code>Success</code> value of the <code>Validation[α, β]</code> structure using a regular
+unary function.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="validation.js.html">lib/validation.js</a>, <a href="validation.js.html#sunlight-1-line-178">line 178</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="merge"><span class="type-signature"></span>merge<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+    <p class="summary">(@Validation[α, α]) => Void → α</p>
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Returns the value of whichever side of the disjunction that is present.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="validation.js.html">lib/validation.js</a>, <a href="validation.js.html#sunlight-1-line-286">line 286</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="orElse"><span class="type-signature"></span>orElse<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+    <p class="summary">(@Validation[α, β]) => (α → Validation[γ, β]) → Validation[γ, β]</p>
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Transforms a <code>Failure</code> value into a new <code>Validation[α, β]</code> structure. Does nothing
+if the structure contain a <code>Success</code> value.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="validation.js.html">lib/validation.js</a>, <a href="validation.js.html#sunlight-1-line-273">line 273</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="swap"><span class="type-signature"></span>swap<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+    <p class="summary">(@Validation[α, β]) => Void → Validation[β, α]</p>
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Swaps the disjunction values.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="validation.js.html">lib/validation.js</a>, <a href="validation.js.html#sunlight-1-line-316">line 316</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="toString"><span class="type-signature"></span>toString<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+    
+    <p class="summary">(@Validation[α, β]) => Void → String</p>
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Returns a textual representation of the <code>Validation[α, β]</code> structure.</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="validation.js.html">lib/validation.js</a>, <a href="validation.js.html#sunlight-1-line-194">line 194</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        </dl>
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+				</div>
+
+				<div class="clearfix"></div>
+				<footer>
+					
+					
+		<span class="copyright">
+		© 2014 Quildreen Motta
+		</span>
+					<br />
+					
+		<span class="jsdoc-message">
+		Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha5</a>
+		on Sat Apr 12 2014 12:14:32 GMT-0300 (BRT) using the <a href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
+		</span>
+				</footer>
+			</div>
+
+			
+			<div class="span3">
+				<div id="toc"></div>
+			</div>
+			
+			<br clear="both">
+		</div>
+
+	</div>
+	<script src="scripts/sunlight.js"></script>
+	<script src="scripts/sunlight.javascript.js"></script>
+	<script src="scripts/sunlight-plugin.doclinks.js"></script>
+	<script src="scripts/sunlight-plugin.linenumbers.js"></script>
+	<script src="scripts/sunlight-plugin.menu.js"></script>
+	<script src="scripts/jquery.min.js"></script>
+	<script src="scripts/jquery.scrollTo.js"></script>
+	<script src="scripts/jquery.localScroll.js"></script>
+	<script src="scripts/bootstrap-dropdown.js"></script>
+	<script src="scripts/toc.js"></script>
+
+
+	<script>  Sunlight.highlightAll({lineNumbers:true,  showMenu: true, enableDoclinks :true}); </script>
+
+	<script>
+		$( function () {
+			$( "#toc" ).toc( {
+			    anchorName  : function(i, heading, prefix) {
+					return $(heading).attr("id") || ( prefix + i );
+				},
+				selectors   : "h1,h2,h3,h4",
+				showAndHide : false,
+				scrollTo    : 60
+			} );
+			$( "#toc>ul" ).addClass( "nav nav-pills nav-stacked" );
+			$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+
+		} );
+	</script>
+
+	
+
+</body>
+</html>
