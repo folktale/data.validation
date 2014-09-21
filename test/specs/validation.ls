@@ -190,3 +190,13 @@ module.exports = spec 'Validation' (o, spec) ->
        for-all(Any, Any).given (!==) .satisfy (a, b) ->
          Success(a).left-map(k b).is-equal Success(a)
        .as-test!
+
+  spec 'cata(p)' (o) ->
+    o 'For failures, should apply the Failure tag' do
+       for-all(Any).satisfy (a) ->
+         Failure(a).cata(Failure: ((x) -> [x, x]), Success: ((x) -> [x])) === [a, a]
+       .as-test!
+    o 'For successes, should apply the Success tag' do
+       for-all(Any).satisfy (a) ->
+         Success(a).cata(Failure: ((x) -> [x, x]), Success: ((x) -> [x])) === [a]
+       .as-test!
